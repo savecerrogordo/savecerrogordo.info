@@ -12,7 +12,31 @@
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <script>
+        $(document).ready(function () {
+            // Add smooth scrolling to all links
+            $("a").on('click', function (event) {
+
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll, the 800 is the time in miliseconds to scroll
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 1000, function () {
+
+                        window.location.hash = hash;
+                    });
+                }
+            });
+        });
+    </script>
 
     <style>
         body,
@@ -45,7 +69,6 @@
             text-align: center;
             color: white;
             font-size: 8vw;
-            top: 50%;
         }
 
         h2 {
@@ -168,6 +191,25 @@
             left: 0;
         }
 
+        .title_button {
+            font-family: "Roboto Slab", serif;
+            text-transform: uppercase;
+            text-align: center;
+            color: white;
+            background: #ec2f16;
+            width: 10%;
+            border: 0;
+            padding: 1%;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.25vw;
+            box-shadow: rgba(0, 0, 0, 0.45) 0px 0.25vw 1vw;
+            cursor: pointer;
+            margin: auto;
+            margin-bottom: 1.5vw;
+            margin-top: -1vw;
+        }
+
         @keyframes MoveUpDown {
 
             0%,
@@ -257,6 +299,7 @@
             and Conglomerate Mesa
             with open-pit cyanide gold mining, <br>
             and we need your help to stop them.</p>
+        <a class="title_button center" href="#help_now_dest">HELP NOW</a>
         <span class="material-icons down_arrow md-light center anim_arrow_bounce">arrow_downward</span>
     </div>
 
@@ -280,7 +323,8 @@
             <p>The Conglomerate Mesa is a mesa biome near Death Valley.
                 It is situated around the area of Cerro Gordo and Keeler,
                 <b>and is a historic silver mining area from
-                the late 19th/early 20th century, contributing to the development of cities like Los Angeles.</b> It has a
+                    the late 19th/early 20th century, contributing to the development of cities like Los Angeles.</b> It
+                has a
                 lot of unqiue
                 flora and fauna and is adjacent to Death Valley.
             </p>
@@ -294,10 +338,12 @@
         <div class="column">
             <h2>2. Threat : K2 Gold Mine</h2>
             <p>K2 Gold Corporation is a mining corporation from Canada.<br>
-                They own the Mojave Project gold mine, a giant open-pit cyanide gold mine, <b>located directly next to (or potentially in) Cerro
-                Gordo.</b><br>
+                They own the Mojave Project gold mine, a giant open-pit cyanide gold mine, <b>located directly next to
+                    (or potentially in) Cerro
+                    Gordo.</b><br>
                 As a part of their expansions, they are now exploring directly into
-                the Cerro Gordo and Conglomerate Mesa Area. Their mining method is using tons of cynaide dumped directly on public ground, with cyanide being a highly toxic material.
+                the Cerro Gordo and Conglomerate Mesa Area. Their mining method is using tons of cynaide dumped directly
+                on public ground, with cyanide being a highly toxic material.
             </p>
         </div>
         <div class="column">
@@ -308,10 +354,12 @@
     <div class="div_infobox row">
         <div class="column">
             <h2>2.1 Why this matters</h2>
-            <p>In the process of mining the proposed area, <b>large quantities of historic artifacts and structures would
-                be destroyed,</b>
-                hundreds of endangered plants and animals killed, and the ground forever contaminated. <b>And all of this
-                on public BLM owned land</b>.
+            <p>In the process of mining the proposed area, <b>large quantities of historic artifacts and structures
+                    would
+                    be destroyed,</b>
+                hundreds of endangered plants and animals killed, and the ground forever contaminated. <b>And all of
+                    this
+                    on public BLM owned land</b>.
             </p>
         </div>
         <div class="column">
@@ -324,24 +372,25 @@
     <div class="div_infobox row">
         <div class="column">
             <h2>3. What we can do</h2>
-            <p>The fight is not lost yet however. <b>We can still manage to get the exploration and mining plan rejected</b>
+            <p>The fight is not lost yet however. <b>We can still manage to get the exploration and mining plan
+                    rejected</b>
                 with the BLM and stop this operation.
             </p>
         </div>
         <div class="column">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/fGnPYBavNQM"
+            <iframe width="80%" height="100%" src="https://www.youtube.com/embed/fGnPYBavNQM"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
         </div>
     </div>
 
-    <div class="div_infobox row">
+    <div class="div_infobox row" id="help_now_dest">
         <div class="column">
             <h2>3.1 Now we need YOU !</h2>
-            <p>If you are a US/California resident, please consider sending in a comment to the BLM <a
-                    href="https://eplanning.blm.gov/eplanning-ui/project/2013863/570/8002408/comment">here.</a><br>
-                You can also write an E-mail directly to the K2 Gold, more information <a
+            <p><b>If you are a USA resident, please consider sending in a comment to the BLM <a
+                        href="https://eplanning.blm.gov/eplanning-ui/project/2013863/570/8002408/comment">here.</a><br></b>
+                You can also write an E-mail directly to K2 Gold, more information <a
                     href="https://www.savecerrogordo.com/about-7">here.</a><br>
                 Find out more about this and sign up to a newsletter <a href="https://www.savecerrogordo.com/">over here
                     !</a><br>
