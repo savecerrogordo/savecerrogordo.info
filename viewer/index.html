@@ -15,6 +15,126 @@
     <meta name="theme-color" content="#d7280f">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
+    <style>
+        html,
+        body {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            background-color: #000;
+            color: #fff;
+            overscroll-behavior: none;
+        }
+
+
+        #info {
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            pointer-events: none;
+            z-index: 1;
+            font-family: 'Roboto Slab', serif;
+            font-size: calc(8px + 0.75vw);
+            /* TODO Solve this in HTML */
+        }
+
+
+        #loading-screen {
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            opacity: 1;
+            transition: 1s opacity;
+        }
+
+        #loading-screen.fade-out {
+            opacity: 0;
+        }
+
+        #loader {
+            display: block;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            width: 150px;
+            height: 150px;
+            margin: -75px 0 0 -75px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #5c5c5c;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+
+        #loader:before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #c2c2c2;
+            -webkit-animation: spin 3s linear infinite;
+            animation: spin 3s linear infinite;
+        }
+
+        #loader:after {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #ff3300;
+            -webkit-animation: spin 1.5s linear infinite;
+            animation: spin 1.5s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -26,8 +146,9 @@
 </head>
 
 <body>
-    <script src="/viewer/three/three.module.js"></script>
     <script type="module">
+
+        import * as THREE from './viewer/three/three.module.js';
         import { OrbitControls } from './viewer/util/OrbitControls.js';
         import { GLTFLoader } from './viewer/util/loaders/GLTFLoader.js';
         import { RGBELoader } from './viewer/util/loaders/RGBELoader.js';
@@ -44,13 +165,22 @@
             document.body.appendChild(container);
 
             camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.25, 20);
-            camera.position.set(- 1.8, 0.6, 2.7);
+            camera.position.set(0, 0.6, 0);
 
             scene = new THREE.Scene();
 
+            const loadingManager = new THREE.LoadingManager(() => {
+
+                const loadingScreen = document.getElementById('loading-screen');
+
+                loadingScreen.classList.add('fade-out');
+                loadingScreen.addEventListener('transitionend', onTransitionEnd);
+
+            });
+
             new RGBELoader()
                 .setPath('./viewer/textures/equirectangular/')
-                .load('skybox1.hdr', function (texture) {
+                .load('Skybox1.hdr', function (texture) {
 
                     texture.mapping = THREE.EquirectangularReflectionMapping;
 
@@ -64,7 +194,7 @@
                     // use of RoughnessMipmapper is optional
                     const roughnessMipmapper = new RoughnessMipmapper(renderer);
 
-                    const loader = new GLTFLoader().setPath('./viewer/models/');
+                    const loader = new GLTFLoader(loadingManager).setPath('./viewer/models/');
                     loader.load('cerro_gordo.glb', function (gltf) {
 
                         gltf.scene.traverse(function (child) {
@@ -102,6 +232,9 @@
             controls.target.set(0, 0, - 0.2);
             controls.update();
 
+            const gridHelper = new THREE.PolarGridHelper(8, 16);
+            scene.add(gridHelper);
+
             window.addEventListener('resize', onWindowResize);
 
         }
@@ -117,16 +250,23 @@
 
         }
 
-        //
-
         function render() {
 
             renderer.render(scene, camera);
 
         }
 
-    </script>
+        function onTransitionEnd(event) {
 
+            event.target.remove();
+
+        }
+    </script>
+    <section id="loading-screen">
+
+        <div id="loader"></div>
+
+    </section>
 </body>
 
 </html>
