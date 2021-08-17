@@ -27,12 +27,12 @@
 
 <body>
     <script type="module">
-        import * as THREE from '/three/three.module.js';
+        import * as THREE from './three/three.module.js';
 
-        import { OrbitControls } from '/utils/OrbitControls.js';
-        import { GLTFLoader } from '/utils/loaders/GLTFLoader.js';
-        import { RGBELoader } from '/utils/loaders/RGBELoader.js';
-        import { RoughnessMipmapper } from '/utils/RoughnessMipmapper.js';
+        import { OrbitControls } from './utils/OrbitControls.js';
+        import { GLTFLoader } from './utils/loaders/GLTFLoader.js';
+        import { RGBELoader } from './utils/loaders/RGBELoader.js';
+        import { RoughnessMipmapper } from './utils/RoughnessMipmapper.js';
 
         let camera, scene, renderer;
 
@@ -65,7 +65,7 @@
                     // use of RoughnessMipmapper is optional
                     const roughnessMipmapper = new RoughnessMipmapper(renderer);
 
-                    const loader = new GLTFLoader().setPath('/models/');
+                    const loader = new GLTFLoader().setPath('./models/');
                     loader.load('cerro_gordo.glb', function (gltf) {
 
                         gltf.scene.traverse(function (child) {
