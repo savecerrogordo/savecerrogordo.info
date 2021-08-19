@@ -5,7 +5,8 @@
     <title>Save Cerro Gordo</title>
     <meta charset=utf-8>
     <meta name="description" content="Saving the historic Cerro Gordo town.">
-    <meta name="keywords" content="Cerro Gordo, Mining, K2Gold, Gold, Cyanide mining, Mining town, Ghost Town, Ghost Town living, Brent Underwood, Saving ghost town, Save Cerro Gordo, Save Ghost Town, Save Mining Town">
+    <meta name="keywords"
+        content="Cerro Gordo, Mining, K2Gold, Gold, Cyanide mining, Mining town, Ghost Town, Ghost Town living, Brent Underwood, Saving ghost town, Save Cerro Gordo, Save Ghost Town, Save Mining Town">
     <meta property="og:title" content="Save Cerro Gordo" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://savecerrogordo.info" />
@@ -94,6 +95,11 @@
             font-weight: 700;
         }
 
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
         .material-icons.md-light {
             color: rgba(255, 255, 255, 1);
         }
@@ -114,6 +120,7 @@
         .text_title_center {
             text-align: center;
             color: white;
+            font-size: 2vw;
         }
 
         .footer_text {
@@ -294,6 +301,68 @@
                 opacity: 1;
             }
         }
+
+        /* Mobile overriders */
+        @media only screen and (max-width: 600px) {
+            p {
+            font-family: 'Roboto Slab', serif;
+            font-size: calc(8px + 1vw);
+            }
+
+            h1 {
+            font-family: 'Bebas Neue', cursive;
+            margin: auto;
+            text-align: center;
+            color: rgb(255, 255, 255);
+            font-size: 15vw;
+            }
+
+            .title_button {
+            font-family: "Roboto Slab", serif;
+            text-transform: uppercase;
+            text-align: center;
+            color: white;
+            background: #ec2f16;
+            width: 25%;
+            border: 0;
+            padding: 2%;
+            border: none;
+            border-radius: 8px;
+            font-size: 3vw;
+            box-shadow: rgba(0, 0, 0, 0.45) 0px 0.25vw 1vw;
+            cursor: pointer;
+            margin: auto;
+            margin-bottom: 4vw;
+            margin-top: 4vw;
+            }
+
+            .down_arrow {
+            margin-top: 16vw;
+            font-size: 8vw;
+            }
+
+            .text_title_center {
+            text-align: center;
+            color: white;
+            font-size: 3vw;
+            }
+
+            h3 {
+            font-family: 'Roboto Slab', serif;
+            text-align: left;
+            color: rgb(66, 66, 66);
+            font-size: 4vw;
+            font-weight: 700;
+            }
+
+            h2 {
+            font-family: 'Roboto Slab', serif;
+            text-align: left;
+            color: rgb(0, 0, 0);
+            font-size: 5vw;
+            font-weight: 900;
+            }
+        }
     </style>
 
 </head>
@@ -301,7 +370,7 @@
 <body>
     <div class="bg">
         <h1 class="center fadein">Save Cerro Gordo</h1>
-        <p class="text_title_center text_larger center fadein">The K2 Gold company is attempting to destroy the Cerro
+        <p class="text_title_center center fadein">The K2 Gold company is attempting to destroy the Cerro
             Gordo area <br>
             and Conglomerate Mesa
             with open-pit cyanide gold mining, <br>
@@ -424,19 +493,18 @@
     <div class="div_infobox">
         <h3>Image credits</h3>
         <a href="https://commons.wikimedia.org/wiki/File:Silver-mining_ghost_town_of_Cerro_Gordo,_the_hills_west_of_Saline_Valley_visible_in_the_distance,_Looking_NE,_Inyo_County,_CA,_USA_-_panoramio.jpg"
-            class="text_smaller" style="display: inline-block;">QKC</a>
-        <a href="https://creativecommons.org/licenses/by-sa/3.0" class="text_smaller">CC BY-SA 3.0</a>
-        <p class="text_smaller" style="display: inline-block;">, via Wikimedia Commons</p>
+            class="" style="display: inline-block;">QKC</a>
+        <a href="https://creativecommons.org/licenses/by-sa/3.0" class="">CC BY-SA 3.0</a>
+        <p class="" style="display: inline-block;">, via Wikimedia Commons</p>
         <br>
         <a href="https://commons.wikimedia.org/wiki/File:Silver-mining_ghost_town_of_Cerro_Gordo,_Looking_N,_Inyo_Co.,_CA_-_panoramio.jpg"
-            class="text_smaller" style="display: inline-block;">QKC</a>
-        <a href="https://creativecommons.org/licenses/by-sa/3.0" class="text_smaller">CC BY-SA 3.0</a>
-        <p class="text_smaller" style="display: inline-block;">, via Wikimedia Commons</p>
+            class="" style="display: inline-block;">QKC</a>
+        <a href="https://creativecommons.org/licenses/by-sa/3.0" class="">CC BY-SA 3.0</a>
+        <p class="" style="display: inline-block;">, via Wikimedia Commons</p>
         <br>
-        <p class="text_smaller" style="display: inline-block;">Brent Underwood, </p><a
-            href="https://www.youtube.com/channel/UCEjBDKfrqQI4TgzT9YLNT8g"
-            style="display: inline-block; padding: 0.15vw;" class="text_smaller">Ghost Town Living </a>
-        <p class="text_smaller" style="display: inline-block;">YouTube Channel</p>
+        <p class="" style="display: inline-block;">Brent Underwood, </p>
+        <a href="https://www.youtube.com/channel/UCEjBDKfrqQI4TgzT9YLNT8g">Ghost Town Living </a>
+        <p class="" style="display: inline-block;">YouTube Channel</p>
     </div>
     <p class="footer_text">You can also <a href="https://github.com/savecerrogordo">fork this website</a> on GitHub.</p>
 </body>
